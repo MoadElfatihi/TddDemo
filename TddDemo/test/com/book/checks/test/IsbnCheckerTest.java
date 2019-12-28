@@ -10,8 +10,20 @@ import com.book.checks.IsbnChecker;
 
 // getting to red : step 1 : checkIsbn(140449116) must return true , otherwise it return false
 // getting to green : step 2 : change the minimum so that this test will pass
+
+// in test : we don't test methods( test methods must be like the methode tested , no one to one methods)
+//	in test : we test funtionnalities or bussiness logic
+// test method must have one assert methods
+// test method must be consistent , must return the same result at all the execution
 public class IsbnCheckerTest {
 
+	/**
+	 * how to get the test methods , we simplly ask this questions :
+	 * 	1 . what is the logic checked ? ( checkAValidIsbn)
+	 *  2.  when is the opposite of this logic  ? ( check a not valid isbn)
+	 *  3.  Edge cases ? ( isbn ending with X )
+	 *  4. Error condition ? ( when we must throw like exeption)
+	 */
 	@Test
 	public void checkAValidISBN() {
 
@@ -60,5 +72,11 @@ public class IsbnCheckerTest {
 
 		boolean result = isbnChecker.checkISBN("U140449117");
 	}
-
+	
+	@Test
+	public void checkIsbn13() {
+		IsbnChecker isbnChecker = new IsbnChecker();
+		boolean result = isbnChecker.checkISBN("9871853260087");
+		assertTrue(result);
+	}
 }
